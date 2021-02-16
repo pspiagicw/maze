@@ -131,7 +131,7 @@ def astar_solver(adjency_list , start , end):
                 for i in range(len(neighbors)):
                     if manhattan_distance(neighbors[i][0],end) + neighbors[i][2] < least_cost:
                         least_index = i
-                        least_cost = manhattan_distance(neighbors[i][0],end)
+                        least_cost = manhattan_distance(neighbors[i][0]+neighbors[i][2],end)
                 sorted_neighbors.append(neighbors.pop(i))
             queue.extend(sorted_neighbors[::-1])
     return False , node_explored , list()
